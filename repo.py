@@ -13,8 +13,9 @@ def cereals():
 
 
 @asset
-def nabisco_cereals(cereals):
+def nabisco_cereals(context, cereals):
     """Cereals manufactured by Nabisco"""
+    context.log.info("hello!")
     return [row for row in cereals if row["mfr"] == "N"]
 
 
