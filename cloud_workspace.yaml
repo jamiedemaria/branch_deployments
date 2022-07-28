@@ -1,4 +1,4 @@
 locations:
   - location_name: hacker_news
     code_source:
-      package_name: hacker_news
+      python_file: hacker_nes/hacker_news/repo.py
