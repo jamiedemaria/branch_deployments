@@ -1,3 +1,6 @@
 dagster
 dagster-cloud
 requests
+pandas
+dagster-snowflake
+dagster-snowflake-pandas
