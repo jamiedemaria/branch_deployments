@@ -14,7 +14,7 @@ def repo():
         "account": {"env": "SNOWFLAKE_ACCOUNT"},
         "user": {"env": "SNOWFLAKE_USER"},
         "password": {"env": "SNOWFLAKE_PASSWORD"},
-        "database": "SANDBOX"
+        "database": "SANDBOX",
         "warehouse": "ELEMENTL"
     }
     resource_defs = {
