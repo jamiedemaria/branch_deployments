@@ -3,6 +3,7 @@ import os
 
 @op(required_resource_keys={"snowflake"})
 def drop_database_clone(context):
+    context.log.info(f"SNOWFLAKE_ACCOUNT: {os.getenv('SNOWFLAKE_ACCOUNT')}")
     context.resources.snowflake.execute_query(
         f"DROP SCHEMA IF EXISTS PRODUCTION_CLONE_{os.environ['DAGSTER_CLOUD_PULL_REQUEST_ID']}"
     )
