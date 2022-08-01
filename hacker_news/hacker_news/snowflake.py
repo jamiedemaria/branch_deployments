@@ -3,7 +3,6 @@ import os
 
 @op(required_resource_keys={"snowflake"})
 def drop_database_clone(context):
-    context.log.info("TRYING")
     context.log.info(f"SNOWFLAKE_ACCOUNT: {os.getenv('SNOWFLAKE_ACCOUNT')}")
     context.log.info(f"SNOWFLAKE_USER: {os.getenv('SNOWFLAKE_USER')}")
     context.log.info(f"SNOWFLAKE_PASSWORD: {os.getenv('SNOWFLAKE_PASSWORD')}")
