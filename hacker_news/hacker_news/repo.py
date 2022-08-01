@@ -19,12 +19,7 @@ def repo():
     }
     resource_defs = {
         "branch": {
-            "snowflake_io_manager": snowflake_io_manager.configured(
-                {
-                    **snowflake_config,
-                    "schema": f"PRODUCTION_CLONE_{os.getenv('DAGSTER_CLOUD_PULL_REQUEST_ID')}",
-                }
-            ),
+            "snowflake_io_manager": snowflake_io_manager,
             "snowflake": snowflake_resource.configured(
             {
                 **snowflake_config,
