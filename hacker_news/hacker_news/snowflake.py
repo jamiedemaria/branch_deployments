@@ -17,7 +17,7 @@ def drop_database_clone(context):
 @op(required_resource_keys={"snowflake"}, ins={"start": In(Nothing)})
 def clone_production_database(context):
     context.resources.snowflake.execute_query(
-        f"CREATE SCHEMA BOLLINGER.PRODUCTION_CLONE_{os.environ['DAGSTER_CLOUD_PULL_REQUEST_ID']} CLONE \"BOLLINGER.PRODUCTION\""
+        f"CREATE SCHEMA BOLLINGER.PRODUCTION_CLONE_{os.environ['DAGSTER_CLOUD_PULL_REQUEST_ID']} CLONE \"PRODUCTION\""
     )
 
 
