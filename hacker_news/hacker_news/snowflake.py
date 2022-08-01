@@ -24,3 +24,7 @@ def clone_production_database(context):
 @graph
 def clone_prod():
     clone_production_database(start=drop_database_clone())
+
+@graph
+def drop_prod_clone():
+    drop_database_clone()

@@ -1,5 +1,5 @@
 from hacker_news.assets import items, comments, stories
-from hacker_news.snowflake import clone_prod
+from hacker_news.snowflake import clone_prod, drop_prod_clone
 from dagster import repository, with_resources
 from dagster_snowflake import build_snowflake_io_manager, snowflake_resource
 from dagster_snowflake_pandas import SnowflakePandasTypeHandler
@@ -49,8 +49,12 @@ def repo():
         assert is_branch_depl != None  # env var must be set
         return "branch" if is_branch_depl else "prod"
 
+    branch_deployment_jobs = [
+        clone_prod.to_job(resource_defs=resource_defs[get_current_env()]),
+        drop_prod_clone.to_job(resource_defs=resource_defs[get_current_env()]),
+    ]
+
     return [
         with_resources([items, comments, stories], resource_defs=resource_defs[get_current_env()]),
-        clone_prod.to_job(resource_defs=resource_defs[get_current_env()]),
-
+        *(branch_deployment_jobs if os.getenv("DAGSTER_CLOUD_IS_BRANCH_DEPLOYMENT") else []),
     ]
