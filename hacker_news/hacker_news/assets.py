@@ -44,7 +44,6 @@ def items(context) -> pd.DataFrame:
 )
 def comments(items: pd.DataFrame) -> pd.DataFrame:
     """Comments from the Hacker News API."""
-    print("this is a change")
     return items[items["type"] == "comment"]
 
 
