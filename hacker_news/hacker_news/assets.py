@@ -25,6 +25,7 @@ ITEM_FIELD_NAMES = [
 def items(context) -> pd.DataFrame:
     """Items from the Hacker News API: each is a story or a comment on a story."""
     rows = []
+    print("hi")
     max_id = requests.get(
         "https://hacker-news.firebaseio.com/v0/maxitem.json", timeout=5
     ).json()
